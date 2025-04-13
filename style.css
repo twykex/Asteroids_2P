@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #111;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #eee;
+}
+
+#lobby-overlay {
+    background-color: rgba(20, 20, 30, 0.85);
+    padding: 30px 40px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+}
+
+#lobby-overlay h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: white;
+}
+
+#lobby-overlay h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+#lobby-status {
+    font-style: italic;
+    color: #aaa;
+    min-height: 1.2em;
+    margin-bottom: 10px;
+}
+
+#player-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    min-height: 50px;
+    width: 80%;
+    text-align: left;
+}
+
+#player-list li {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    color: white;
+}
+
+#player-list li.you {
+    font-weight: bold;
+    background-color: rgba(100, 150, 255, 0.3);
+}
+
+
+#start-game-button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+#start-game-button:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+#start-game-button:disabled {
+    background-color: #555;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#game-container {
+    position: relative;
+    border: 1px solid #555;
+    background-color: black;
+    width: 800px;
+    height: 600px;
+    /* display: none; Controlled by JS */
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    color: white;
+    font-size: 18px; /* Base size, text drawn on canvas might be smaller */
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+}
+
+#score {
+    text-align: left;
+    padding-left: 10px;
+}
+
+#round-info {
+    text-align: center;
+    font-weight: bold;
+    color: #ffc107;
+    flex-grow: 1; /* Allow it to take space between score and lives */
+}
+
+
+#lives {
+     text-align: right;
+     padding-right: 10px;
+}
+
+#game-over-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10; /* Ensure it's above other UI */
+}
+
+#game-over-overlay h1 {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+#game-over-overlay p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+#restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#restart-button:hover {
+    background-color: #286090;
+}
+
+#round-transition-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    white-space: pre-wrap;
+}
+
+#round-transition-overlay h2 {
+     margin: 0;
+     font-size: 1.8em;
+     color: #4CAF50;
+}

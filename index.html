@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Avoider - Lobby</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Socket.IO Client -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+    <!-- Lobby Overlay (Visible First) -->
+    <div id="lobby-overlay">
+        <h2>Lobby</h2>
+        <p id="lobby-status">Connecting...</p>
+        <h3>Players:</h3>
+        <ul id="player-list">
+            <!-- Player names will be added here by JS -->
+        </ul>
+        <button id="start-game-button" disabled>Waiting for Players...</button>
+    </div>
+
+    <!-- Game Container (Initially Hidden) -->
+    <div id="game-container" style="display: none;">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-overlay">
+            <div id="score">Score: 0</div>
+            <div id="lives">Lives: 3</div>
+        </div>
+        <div id="game-over-overlay" style="display: none;">
+             <h1>Game Over!</h1>
+             <p id="final-score">Score: 0</p>
+             <p id="high-score">High Score: 0</p>
+             <button id="restart-button">Back to Lobby?</button> <!-- Changed Restart Text -->
+         </div>
+    </div>
+
+    <!-- Game Script -->
+    <script src="game.js"></script>
+</body>
+</html>
